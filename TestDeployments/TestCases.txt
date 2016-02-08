@@ -1,0 +1,75 @@
+resize-test1
+	Single VM
+	No VNet
+
+Command: .\ResizeCS.ps1 -CloudService resize-test1 -NewSize A10 -OutputFile \temp\test.txt -AllowServiceVipChange -AllowVNetIPChange
+
+
+resize-test2
+	Two VMs in AS
+	Member of VNet (resize2-VNet)
+
+Command: .\ResizeCS.ps1 -CloudService resize-test2 -NewSize A10 -OutputFile \temp\test.txt -AllowServiceVipChange -AllowVNetIPChange
+
+
+resize-test3
+	Multiple VMs w/ Reserved VIP and Static DataCenter IP
+	VNet (resize3-VNet)
+
+Command: .\ResizeCS.ps1 -CloudService resize-test3 -NewSize A10 -OutputFile \temp\test.txt  
+
+
+resize-test4
+	Multiple VMs in AS with ILB (Not assigned to endpoints)
+	VNet (resize4-VNet)
+
+Command: .\ResizeCS.ps1 -CloudService resize-test4 -NewSize A10 -OutputFile \temp\test.txt -AllowServiceVipChange -AllowVNetIPChange 
+
+
+resize-test4EP
+	Multiple VMs in AS with ILB (With Endpoints Assigned)
+	VNet (resize4-VNet)
+
+Command: .\ResizeCS.ps1 -CloudService resize-test4ep -NewSize A10 -OutputFile \temp\test.txt -AllowServiceVipChange -AllowVNetIPChange 
+
+
+resize-test5
+	Multiple VMs with multiple data disks
+	No VNet
+
+Command: .\ResizeCS.ps1 -CloudService resize-test5 -NewSize A10 -OutputFile \temp\test.txt -AllowServiceVipChange -AllowVNetIPChange
+
+
+Resize-test6
+	Two VMs in two subnets
+	VNet (resize6-VNet)
+
+Command: .\ResizeCS.ps1 -CloudService resize-test6 -NewSize A10 -OutputFile \temp\test.txt -AllowServiceVipChange -AllowVNetIPChange
+
+Resize-test7
+	Premium Storage VM
+
+Command: .\ResizeCS.ps1 -CloudService resize-test7 -NewSize Standard_GS2 -OutputFile \temp\test.txt -AllowServiceVipChange -AllowVNetIPChange
+
+Resize-test8
+	Verify warning on stopped and stopped-deallocated VMs
+	No VNet
+
+Command: .\ResizeCS.ps1 -CloudService resize-test8 -NewSize A10 -OutputFile \temp\test.txt -AllowServiceVipChange -AllowVNetIPChange
+
+Resize-test9
+    Cloud Service in affinity group
+
+Command: .\ResizeCS.ps1 -CloudService resize-test9 -NewSize A10 -OutputFile \temp\test.txt -AllowServiceVipChange -AllowVNetIPChange -AllowRemovalOfAffinityGroup
+
+Resize-test10
+	NEGATIVE TEST: Ensure a size not valid in a region is returned as an error.
+	No VNet
+
+Command: .\ResizeCS.ps1 -CloudService resize-test10 -NewSize Standard_DS2 -OutputFile \temp\test.txt -AllowServiceVipChange -AllowVNetIPChange
+
+Resize-test11
+	Two VMs with Public IP address
+	No VNet
+
+Status: Needs to be created	
