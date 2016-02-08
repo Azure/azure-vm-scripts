@@ -207,7 +207,7 @@ if ($deployment.DnsSettings) {
 #
 if ($service.ReverseDnsFqdn) {
     write-host
-    write-host "ERROR: This script does not support cloud servcies with Reverse FQDN configured"
+    write-host "ERROR: This script does not support cloud services with Reverse FQDN configured"
     write-host
     return
 }
@@ -291,7 +291,7 @@ foreach ($vm in $vms){
             # Size is good
         } else {
             write-host 
-            write-host "Error: One of the orginal VMs is using premium storage, and the selected size is not a DS or GS size."
+            write-host "Error: One of the original VMs is using premium storage, and the selected size is not a DS or GS size."
             write-host
             return
         }
@@ -303,7 +303,7 @@ foreach ($vm in $vms){
 #region Warn on any IP address changes
 #
     # Check for Public IP addresses and warn that they will change
-    #    TODO: Verify that public IP addresses cannot use static IP addresses
+    #    
     if ($vm.PublicIpAddress ) {
         if ($AllowVMPublicIPChange){
             write-host "WARNING: Public IP address for VM:" $vm.Name "will change after resize."
