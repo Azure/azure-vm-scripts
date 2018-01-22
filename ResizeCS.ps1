@@ -440,14 +440,12 @@ try {
 #endregion 
 
     #
-    # Ensure CurrentStorageAccount is set for the subscription
+    # Ensure CurrentStorageAccount is set for the subscription in the right location
     #
-    $currentSub = Get-AzureSubscription -Current
-    if (-Not ($currentSub.CurrentStorageAccountName)) {
-        $parser = $OSDisk.MediaLink.Host.Split(".")
-        $StorageAccount = $parser[0]
-        Set-AzureSubscription -SubscriptionName $currentSub.SubscriptionName -CurrentStorageAccountName $StorageAccount
-    }
+    $parser = $OSDisk.MediaLink.Host.Split(".")
+    $StorageAccount = $parser[0]
+    Set-AzureSubscription -SubscriptionName $currentSub.SubscriptionName -CurrentStorageAccountName $StorageAccount
+    
 
     #
     # Delete and Recreate the Cloud Service if it was in an affinity group
