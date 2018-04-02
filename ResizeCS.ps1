@@ -442,6 +442,7 @@ try {
     #
     # Ensure CurrentStorageAccount is set for the subscription in the right location
     #
+    $currentSub = Get-AzureSubscription -Current
     $parser = $OSDisk.MediaLink.Host.Split(".")
     $StorageAccount = $parser[0]
     Set-AzureSubscription -SubscriptionName $currentSub.SubscriptionName -CurrentStorageAccountName $StorageAccount
